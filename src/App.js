@@ -10,30 +10,31 @@ let interval;
 
 
 function App() {
-  // const adminUser={
-  //   email:"zahramohammaddoost@gmail.com",
-  //   password:"Zm@!7711"
-  // }
+  const adminUser={
+    email:"zahramohammaddoost@gmail.com",
+    password:"Zm11",
+    name:"zahra"
+  }
 
   const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
 
   const Login = details => {
     // console.log(details);
-    //  if(details.email == adminUser.email && details.password == adminUser.password){
+     if(details.email == adminUser.email && details.password == adminUser.password && details.name == adminUser.name){
     // console.log("Logged in")
     setUser({
       name: details.name,
       email: details.email
     });
-    // }else{
+    }else{
     // console.log("Details do not match!");
-    // setError("Details do not match!")
-    // }
+    setError("Details do not match!")
+    }
   }
 
   const Logout = () => {
-    setUser({ name: "", email: "" });
+    setUser({ name: "", email: "", password:"" });
   }
 
 // quiz-------------------------------------
@@ -61,7 +62,7 @@ function App() {
   const resetClickHandler = () => {
     setActiveQuestion(0);
     setAnswers([]);
-    setStep(2);
+    setStep(1);
     setTime(0);
     interval = setInterval(() => {
       setTime(prevTime => prevTime + 1)
